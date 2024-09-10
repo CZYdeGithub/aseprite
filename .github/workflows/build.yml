@@ -40,11 +40,6 @@ jobs:
 
       uses: hendrikmuhs/ccache-action@v1
 
-      if: runner.os == 'Linux'
-
-      with:
-
-        key: ${{ matrix.os }}-${{ matrix.enable_ui }}
 
     - uses: seanmiddleditch/gha-setup-ninja@master
 
@@ -53,22 +48,6 @@ jobs:
       if: runner.os == 'Windows'
 
     - name: Install Dependencies
-
-      shell: bash
-
-      run: |
-
-        
-
-          sudo apt-get update -qq
-
-          sudo apt-get install -y \
-
-            libx11-dev libxcursor-dev libxi-dev
-
-        fi
-
-    - name: Generating Makefiles
 
       shell: bash
 
